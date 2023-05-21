@@ -9,9 +9,10 @@
       msg: 
         - |
           name: {{ item }}
-          state: {{ ansible_facts.services[item].state }}
-          status: {{ ansible_facts.services[item].status }}
+          state: {{ ansible_facts.services[item].state | default('service not present on this server') }}
+          status: {{ ansible_facts.services[item].status | default('service not present on this server') }}
     loop:
-      - sshd
-      - httpd
-      - nginx
+      - sshd.service
+      - firewalld.service
+      - httpd.service
+      - nginx.service
