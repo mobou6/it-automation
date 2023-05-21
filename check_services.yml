@@ -7,7 +7,7 @@
   - name: display the state of the wanted services
     debug:
       msg: 
-        -|
+        - |
           name: {{ item }}
           state: {{ services[item].state }}
           status: {{ services[item].status }}
