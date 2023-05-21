@@ -6,10 +6,11 @@
     
   - name: display the state of the wanted services
     debug:
-      - "|
-        name: {{ item }}
-        state: {{ services[item].state }}
-        status: {{ services[item].status }}"
+      msg: 
+        -|
+          name: {{ item }}
+          state: {{ services[item].state }}
+          status: {{ services[item].status }}
     loop:
       - sshd
       - httpd
