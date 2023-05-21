@@ -1,0 +1,12 @@
+- name: check if a list of services state
+  hosts: all 
+  tasks:
+  - name: check all services
+    service_facts:
+    
+  - name: display the state of the wanted services
+    debug:
+      - "|
+        name: {{ item.name }}
+        state: {{ services[item.name].state }}
+        status: {{ services[item.name].status }}"
