@@ -1,0 +1,8 @@
+- name: Display packages on linux server
+  hosts: all
+  tasks:
+  - name: run gather packages facts
+    package_facts:
+  
+  - debug: 
+      msg: "{{ packages }}"
