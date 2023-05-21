@@ -9,8 +9,8 @@
       msg: 
         - |
           name: {{ item }}
-          state: {{ services[item].state }}
-          status: {{ services[item].status }}
+          state: {{ ansible_facts.services[item].state }}
+          status: {{ ansible_facts.services[item].status }}
     loop:
       - sshd
       - httpd
